@@ -50,7 +50,7 @@ $route['(:any)/manage'] = "profilepage/profile_manage";
 $route['upload/addnew'] = "upload/upload_img";
 $route['user/login'] = "user/login";
 $route['user/checklogin'] = "user/checklogin";
-$route['(:any)'] = "profilepage";
+//$route['(:any)'] = "profilepage";
 
 
 

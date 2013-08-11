@@ -34,7 +34,16 @@ class User extends Main_Controller {
 		$this->load->view('login');
 		$this->load->view('include/footerbt');		
 	}
+
     public function checklogin(){
+        $username=$_REQUEST['username'];
+        $password=$_REQUEST['password'];
+        $this->load->model('user_model');
+        $this->user_model->checklogin($username,$password);
+    }
+
+
+    public function check(){
         $username=$_REQUEST['username'];
         $password=$_REQUEST['password'];
         $this->load->model('user_model');
