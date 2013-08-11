@@ -42,6 +42,11 @@ class User extends Main_Controller {
         $this->user_model->checklogin($username,$password);
     }
 
+    public function register(){
+        $this->load->view('include/headerbt');
+        $this->load->view('register_user');
+        $this->load->view('include/footerbt');
+    }
 
     public function check(){
         $username=$_REQUEST['username'];
