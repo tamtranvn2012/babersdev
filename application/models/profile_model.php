@@ -8,27 +8,27 @@
 		}
 		
 		//Get bussiness profile
-		function get_all_bussiness_info($userid)
+		function get_all_invidual_info($userid)
 		{
 			if ($userid == 'all'){
-				$query = $this->db->get('bussinessprofile');
+				$query = $this->db->get('userprofile');
 				$result = $query->result();			
 			}
 			if ($userid != 'all'){
 				$userid = intval($userid);
 				$this->db->where('userid', $userid);
-				$query = $this->db->get('bussinessprofile');
+				$query = $this->db->get('userprofile');
 				$result = $query->result();			
 			}			
 			return $result;
 		}
 		
 		//Check profile id contant with bussiness profile or not?
-		function check_userid_bpid($userid,$bpid)
+		function check_userid_upid($userid,$upid)
 		{
 			$this->db->where('userid', $userid);
-			$this->db->where('bpid', $bpid);
-			$query = $this->db->get('bussinessprofile');
+			$this->db->where('upid', $upid);
+			$query = $this->db->get('userprofile');
 			$result = $query->result();			
 			if(count($result)){
 				return true;
@@ -128,5 +128,15 @@
 			}else{
 				return false;
 			}									
+		}
+		
+		//Get apid from upid and bpid
+		function get_apid($upid,$bpid){
+			$this->db->select('apid');
+			$this->db->where('upid', $upid);
+			$this->db->where('bpid', $bpid);
+			$query = $this->db->get('approveprofile');
+			$result = $query->result();			
+			return $result;
 		}
 	}

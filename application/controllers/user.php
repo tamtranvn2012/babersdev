@@ -55,7 +55,7 @@ class User extends Main_Controller {
         $this->user_model->add_new_user($username,$password);
     }
     public function successful(){
-        echo "register is successful";
+        
     }
     public function loginfailed(){
         echo "login is failed";

@@ -87,17 +87,17 @@ class Profilepage extends Main_Controller {
 			if(!$userid){
 				redirect('/user/login/', 'refresh');
 			}
-			$resultbussinessprofiles = $this->profile_model->get_all_bussiness_info('all');
-			$resultownbussinessprofiles = $this->profile_model->get_all_bussiness_info($userid);
+			$resultbussinessprofiles = $this->profile_model->get_all_invidual_info('all');
+			$resultownbussinessprofiles = $this->profile_model->get_all_invidual_info($userid);
 			$bpownarray = array();
 			foreach ($resultownbussinessprofiles as $perbussinessprofile){
-				$bpid = $perbussinessprofile->bpid;
-				$bpownarray[$bpid] = $perbussinessprofile->babershopname;
+				$upid = $perbussinessprofile->upid;
+				$bpownarray[$upid] = $perbussinessprofile->babershopname;
 			}
 			$bparray = array();
 			foreach ($resultbussinessprofiles as $perbussinessprofile){
-				$bpid = $perbussinessprofile->bpid;
-				$bparray[$bpid] = $perbussinessprofile->babershopname;
+				$upid = $perbussinessprofile->upid;
+				$bparray[$upid] = $perbussinessprofile->babershopname;
 			}
 			$data['bpchoice'] = $bparray;
 			$data['bpownchoice'] = $bpownarray;
@@ -113,15 +113,15 @@ class Profilepage extends Main_Controller {
 		if(!$userid){
 			redirect('/user/login/', 'refresh');
 		}
-		$yourbpid = intval($_REQUEST['yourbpprofile']);
-		if($this->profile_model->check_userid_bpid($userid,$yourbpid)){
+		$yourupid = intval($_REQUEST['yourbpprofile']);
+		if($this->profile_model->check_userid_upid($userid,$yourupid)){
 			//Place code to get bussiness profile id here : get $approvetobpid
 			$approvetobpid = intval($_REQUEST['bussinessprofileid']);
-			if($this->profile_model->check_existing_approve($yourbpid,$approvetobpid)){
+			if($this->profile_model->check_existing_approve($yourupid,$approvetobpid)){
 				echo 'You already approve to this bussiness page';
 			}
 			else{
-				$this->profile_model->save_request_approve($yourbpid,$approvetobpid);
+				$this->profile_model->save_request_approve($yourupid,$approvetobpid);
 				echo 'Save approved Done';
 			}
 		}else{

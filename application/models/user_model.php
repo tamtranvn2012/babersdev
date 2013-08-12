@@ -84,7 +84,16 @@
                 $usalt = $userarr[0]->salt;
                 $hashpass = $this->gethashpass($password, $usalt, $utimestamp);
                 if ($hashpass == $upassword) {
-                    redirect('/user/loginsuccess/', 'refresh');
+					$this->load->helper('cookie');
+					$userid = $userarr[0]->userid;
+					$username = $userarr[0]->username;
+					$cookie = array(
+						'name'   => 'userid',
+						'value'  => $userid,
+						'expire' => '86400'
+					);
+					$this->input->set_cookie($cookie);									
+                    redirect('/'.$username.'/manage/', 'refresh');
                     return $userarr[0]->userid;
                 } else {
                     redirect('/user/loginfailed','refresh');

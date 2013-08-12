@@ -18,6 +18,8 @@ class Upload extends CI_Controller
 		}
 		$this->load->helper(array('form', 'url'));
 		$this->load->helper('date');
+		$this->load->model('post_model');
+		$this->load->model('profile_model');		
 		$os = PHP_OS;
 		switch($os)
 		{
@@ -71,8 +73,21 @@ class Upload extends CI_Controller
 	{
 		if($_FILES['userfile']['name'] == ''){
 			$this->load->helper('cookie');
-			var_dump($this->input->cookie('photo_img_id', TRUE));
-			var_dump($_REQUEST);
+			$upid = $_REQUEST['upid'];
+			$bpid = $_REQUEST['bpid'];
+			$userid = $this->input->cookie('userid', TRUE);
+			if($this->profile_model->check_upid_bpid($upid,$bpid,$userid)){
+				$babershopname = $_REQUEST['babershopname'];
+				$baber_type = $_REQUEST['baber_type'];
+				$baber_name = $_REQUEST['babername'];
+				$tags = $_REQUEST['tags'];
+				$resultapid = $this->profile_model->get_apid($upid,$bpid);
+				$apid = $resultapid[0]->apid;
+				$photo_id = $this->input->cookie('photo_img_id', TRUE);
+				$private = 0;
+				$this->post_model->add_new_post($apid,$photo_id,$babershopname,$baber_type,$baber_name,$tags,$private);
+				echo 'Load view complete insert post here';
+			}
 		}
 	
 		//Format the name
