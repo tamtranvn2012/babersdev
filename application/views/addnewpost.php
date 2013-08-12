@@ -14,6 +14,8 @@
 		<input type="text" name="babername" value="" />
 		<p>Tags(Seperate by comma)</p>
 		<input type="text" name="tags" value="" />
+		<input type="hidden" name="upid" value="<?php echo $upid;?>" />
+		<input type="hidden" name="bpid" value="<?php echo $bpid;?>" />
 	<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
 	<p>Upload image for this post:</p>
 	<div class="row fileupload-buttonbar">

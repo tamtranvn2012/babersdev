@@ -71,8 +71,8 @@ class Upload extends CI_Controller
 	{
 		if($_FILES['userfile']['name'] == ''){
 			$this->load->helper('cookie');
-			var_dump($_REQUEST);
 			var_dump($this->input->cookie('photo_img_id', TRUE));
+			var_dump($_REQUEST);
 		}
 	
 		//Format the name

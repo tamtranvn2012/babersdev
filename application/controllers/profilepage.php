@@ -212,8 +212,10 @@ class Profilepage extends Main_Controller {
 		$upid = intval($this->uri->segment(4, 0));
 		$bpid = intval($this->uri->segment(5, 0));
 		if($this->profile_model->check_upid_bpid($upid,$bpid,$userid)){
+			$data['upid'] = $upid;
+			$data['bpid'] = $bpid;
 			$this->load->view('include/headerbt');
-			$this->load->view('addnewpost');
+			$this->load->view('addnewpost',$data);
 			$this->load->view('include/footerbt');																
 		}else{
 			$this->load->view('include/headerbt');
