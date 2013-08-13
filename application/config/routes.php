@@ -43,7 +43,7 @@ $route['404_override'] = '';
 $route['(:any)/manage/approveapid/(:any)/(:any)'] = "profilepage/approved_apid";
 $route['(:any)/manage/unapproveapid/(:any)/(:any)'] = "profilepage/unapproved_apid";
 $route['(:any)/manage/listapprove/(:any)'] = "profilepage/listing_approved_by_bpid";
-$route['(:any)/manage/addnewpost/(:any)'] = "profilepage/add_new_post";
+$route['(:any)/manage/addnewpost/(:any)/(:any)'] = "profilepage/add_new_post";
 $route['(:any)/manage/requestapprove'] = "profilepage/request_approve";
 $route['(:any)/manage/saverequest'] = "profilepage/save_request_approve";
 $route['(:any)/manage/posts'] = "profilepage/manage_bp_posts";
@@ -52,6 +52,7 @@ $route['(:any)/manage'] = "profilepage/profile_manage";
 $route['upload/addnew'] = "upload/upload_img";
 $route['user/login'] = "user/login";
 $route['user/checklogin'] = "user/checklogin";
+$route['test'] = "test";
 $route['(:any)'] = "profilefrontpage";
 
 

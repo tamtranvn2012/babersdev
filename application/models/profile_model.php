@@ -7,7 +7,7 @@
 			$this->load->database();
 		}
 		
-		//Get bussiness profile
+		//Get user profile by userid - all info
 		function get_all_invidual_info($userid)
 		{
 			if ($userid == 'all'){
@@ -20,6 +20,17 @@
 				$query = $this->db->get('userprofile');
 				$result = $query->result();			
 			}			
+			return $result;
+		}
+
+		//Get user profile by userid
+		function get_upid_userid($userid)
+		{
+			$userid = intval($userid);
+			$this->db->select('upid');
+			$this->db->where('userid', $userid);
+			$query = $this->db->get('userprofile');
+			$result = $query->result();			
 			return $result;
 		}
 		
@@ -177,5 +188,14 @@
 			$query = $this->db->get('bussinessprofile');
 			return $query->result();
 		}
+		
+		//Get approve id apid from user profile id upid
+		function get_apid_by_upid_allinfo($upid){
+			$this->db->where('upid', $upid);
+			$this->db->where('isapproved', 1);
+			$query = $this->db->get('approveprofile');
+			return $query->result();
+		}
+		
 		
 	}

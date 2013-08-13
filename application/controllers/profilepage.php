@@ -49,6 +49,19 @@ class Profilepage extends Main_Controller {
 		$bpidofuser = $this->profile_model->get_bpid_by_userid($userid);
 		$data['bpidsmanage'] = $bpidofuser;
 		//end data		
+		
+		//data for make new post to approve bussiness profile id
+		$upidarrobj = $this->profile_model->get_upid_userid($userid);
+		$apidsobjs = array();
+		foreach($upidarrobj as $perupidobj){
+			$perupid = $perupidobj->upid;
+			$apidarrobj = $this->profile_model->get_apid_by_upid_allinfo($perupid);
+			foreach($apidarrobj as $perapidobj){
+				$apidsobjs[] = $perapidobj;
+			}
+		}
+		$data['apidsobjs'] = $apidsobjs;
+		//data
 		$this->load->view('include/header');
 		$this->load->view('profilemanage',$data);
 		$this->load->view('include/footer');						
