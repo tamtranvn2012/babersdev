@@ -153,4 +153,21 @@
 			$result = $query->result();			
 			return $result;
 		}
+		
+		//Get all results for search by zipcode
+		function search_by_zipcode($zipcode){
+			$this->db->select('upid');
+			$this->db->like('zip', $zipcode); 
+			$query = $this->db->get('userprofile');
+			return $query->result();
+		}
+		
+		//Get approve id (apid) by userprofile id (upid)
+		function get_apid_by_upid($upid){
+			$this->db->select('apid');
+			$this->db->where('upid', $upid);
+			$query = $this->db->get('approveprofile');
+			return $query->result();
+		}
+		
 	}

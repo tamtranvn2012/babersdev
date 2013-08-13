@@ -1,4 +1,4 @@
-<?php echo form_open_multipart('/profilepage/saverequest', array('id' => 'request_approve')); ?>
+<?php echo form_open_multipart('/'.$username.'/manage/saverequest', array('id' => 'request_approve')); ?>
 	<p>Choose your profile</p>
 	<select name="yourbpprofile">
 		<?php
