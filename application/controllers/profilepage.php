@@ -43,16 +43,41 @@ class Profilepage extends Main_Controller {
 	
 	//Baber profile manage page
 	function profile_manage(){
+		$data['username'] = $this->uri->segment(1, 0);
+		$userid = $this->input->cookie('userid', TRUE);
+		//data for manage links approve
+		$bpidofuser = $this->profile_model->get_bpid_by_userid($userid);
+		$data['bpidsmanage'] = $bpidofuser;
+		//end data		
 		$this->load->view('include/header');
-		$this->load->view('profilemanage');
+		$this->load->view('profilemanage',$data);
 		$this->load->view('include/footer');						
 	}
 	
 	//Baber request approve on Babershop to work
 	function request_approve(){
 		$username = $this->uri->segment(1, 0);
+		$data['username'] = $username;
 		$result = $this->user_model->checkusername($username);
 		if($result){
+			//data for search bpid by username
+			$useridarr = $this->user_model->get_all_userid();
+			$userinfoarr = array();
+			foreach($useridarr as $peruserid){
+				$peruserinfo = array();
+				$useridofarr = $peruserid->userid;
+				$bpidarr = $this->profile_model->get_bpid_by_userid($useridofarr);
+				foreach($bpidarr as $perbp){
+					$perbpid = $perbp->bpid;
+					$usernamebpid = $this->user_model->get_username_by_userid($useridofarr)[0]->username;
+					$peruserinfo['username'] = $usernamebpid;
+					$peruserinfo['bpid'] = $perbpid;
+					$userinfoarr[] = $peruserinfo;
+				}
+			}
+			$data['userbpids'] = $userinfoarr;
+			//data
+			
 			$userid = 0;
 			$userid = $this->input->cookie('userid', TRUE);
 			$resultbussinessprofiles = $this->profile_model->get_all_invidual_info('all');

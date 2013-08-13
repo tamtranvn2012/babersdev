@@ -170,4 +170,12 @@
 			return $query->result();
 		}
 		
+		//Get bussiness profile bpid by userid
+		function get_bpid_by_userid($userid){
+			$this->db->select('bpid');
+			$this->db->where('userid', $userid);
+			$query = $this->db->get('bussinessprofile');
+			return $query->result();
+		}
+		
 	}
