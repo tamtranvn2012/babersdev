@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2013-08-13 20:02:10
+Date: 2013-08-14 11:20:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,7 +24,7 @@ CREATE TABLE `approveprofile` (
   `isapproved` tinyint(1) DEFAULT NULL,
   `apid` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`apid`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of approveprofile
@@ -35,6 +35,7 @@ INSERT INTO approveprofile VALUES ('5', '2', '0', '3');
 INSERT INTO approveprofile VALUES ('1', '3', '1', '6');
 INSERT INTO approveprofile VALUES ('2', '3', '1', '7');
 INSERT INTO approveprofile VALUES ('1', '5', '0', '8');
+INSERT INTO approveprofile VALUES ('7', '2', '1', '9');
 
 -- ----------------------------
 -- Table structure for `bussinessprofile`
@@ -86,7 +87,7 @@ CREATE TABLE `photos` (
   `created` int(11) DEFAULT NULL,
   `baber_type` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`photo_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of photos
@@ -124,6 +125,7 @@ INSERT INTO photos VALUES ('33', null, null, '9', '0', null, '9___2013_08_12___B
 INSERT INTO photos VALUES ('34', null, null, '8', '0', null, '8___2013_08_13___hair_beauty.jpg', '1376365558', 'babershop');
 INSERT INTO photos VALUES ('35', null, null, '8', '0', null, '8___2013_08_13___beautiful_hair.jpg', '1376384224', 'babershop');
 INSERT INTO photos VALUES ('36', null, null, '8', '0', null, '8___2013_08_13___Hair_Makeup1.jpg', '1376384281', 'hairsalon');
+INSERT INTO photos VALUES ('37', null, null, '16', '0', null, '16___2013_08_14___beautiful_hair.jpg', '1376453578', 'babershop');
 
 -- ----------------------------
 -- Table structure for `photo_tmp`
@@ -154,7 +156,7 @@ CREATE TABLE `postapprovedprofile` (
   `private` tinyint(1) DEFAULT NULL,
   `photo_img_link` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ppid`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of postapprovedprofile
@@ -178,6 +180,7 @@ INSERT INTO postapprovedprofile VALUES ('17', '7', '33', 'test 2 3', 'hairsalon'
 INSERT INTO postapprovedprofile VALUES ('18', '1', '34', 'aaaaaaaaa', 'babershop', 'aaaaaaa', '1376365563', 'aa,bb,cc,dd', '0', null);
 INSERT INTO postapprovedprofile VALUES ('19', '1', '35', 'test 1 2', 'babershop', 'test 1 2', '1376384228', 'test , 1,2,3', '0', null);
 INSERT INTO postapprovedprofile VALUES ('20', '6', '36', 'test 1 3', 'hairsalon', 'test 1 3', '1376384286', 'test , 1,2,3', '0', null);
+INSERT INTO postapprovedprofile VALUES ('21', '9', '37', 'thanh thanh test', 'babershop', 'thanh thanh test', '1376453580', 'tag tam', '0', null);
 
 -- ----------------------------
 -- Table structure for `test`
@@ -232,7 +235,7 @@ CREATE TABLE `user` (
   `salt` varchar(3) DEFAULT NULL,
   `email` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of user
@@ -243,6 +246,8 @@ INSERT INTO user VALUES ('rvengine2', 'ZDIxY2JhZmNjOGRjYTY2NTBiYTc3Mjlj', '10', 
 INSERT INTO user VALUES ('rvengine3', 'ZDIxY2JhZmNjOGRjYTY2NTBiYTc3Mjlj', '11', '1376100216', 'h5f', 'test3@test.com');
 INSERT INTO user VALUES ('rvengine4', 'ZDIxY2JhZmNjOGRjYTY2NTBiYTc3Mjlj', '12', '1376100216', 'h5f', 'test4@test.com');
 INSERT INTO user VALUES ('rvenginenew', 'ZDIxY2JhZmNjOGRjYTY2NTBiYTc3Mjlj', '14', '1376100216', 'h5f', 'test4@test.com');
+INSERT INTO user VALUES ('tamtran', 'NjI5OGMzMjMzYzYyMDM0ZTg0MDBjZTlk', '15', '1376452916', 'h5f', null);
+INSERT INTO user VALUES ('thanhthanh', 'Y2MxYTFkMjQ0MGUxMTY4N2JhYjJjYmVj', '16', '1376453464', 'h5f', null);
 
 -- ----------------------------
 -- Table structure for `userprofile`
@@ -265,7 +270,7 @@ CREATE TABLE `userprofile` (
   `slug` varchar(32) DEFAULT NULL,
   `babershopname` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`upid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of userprofile
@@ -275,3 +280,5 @@ INSERT INTO userprofile VALUES ('2', '9', '8___2013_08_08___35G1953_v4_copy1.jpg
 INSERT INTO userprofile VALUES ('3', '10', '8___2013_08_08___35G1953_v4_copy1.jpg', '3 kiet 258 uid 10', 'hue', 'hu', '49000 baber 3', '01689120525', 'thanhhoins10', 'thanhhoface10', 'knife,cut', '0', '1376015243', null, 'thanh babershop');
 INSERT INTO userprofile VALUES ('4', '11', '8___2013_08_08___35G1953_v4_copy1.jpg', '3 kiet 258 uid 10', 'hue', 'hu', '50000 baber 4', '01689120525', 'thanhhoins11', 'thanhhoface11', 'knife,cut', '0', '1376015243', null, 'nhan babershop');
 INSERT INTO userprofile VALUES ('5', '12', '8___2013_08_08___35G1953_v4_copy1.jpg', '3 kiet 258 uid 10', 'hue', 'hu', '51000 baber5', '01689120525', 'thanhhoins12', 'thanhhoface12', 'knife,cut', '0', '1376015243', null, 'hung babershop');
+INSERT INTO userprofile VALUES ('6', '15', null, '3 kiet 258 le duan', 'Hue', 'Hu', '47000', '0123456789', 'ins', 'face', 'ftool', '0', '1376452916', 'tamtran', 'tamtran babershop');
+INSERT INTO userprofile VALUES ('7', '16', null, '3 kiet 258 le duan', 'Hue', 'Hu', '47000', '0123456789', 'ins', 'face', 'ftool', '0', '1376453464', null, 'thanh thanh babershop');
