@@ -24,7 +24,7 @@
     </script>
 </head>
 <body>
-<form action="../check" method="post">
+   <?php echo form_open_multipart('/user/check', array('id' => 'checklogin')); ?>
 
     <h3>Register</h3>
     <table>
@@ -80,12 +80,8 @@
             <td><input type="text" name="favoritestool"></td>
         </tr>
         <tr>
-            <td>Private:</td>
-            <td><input type="text" name="private"></td>
-        </tr>
-        <tr>
-            <td>Slug:</td>
-            <td><input type="text" name="slug"></td>
+            <td>Babershop name:</td>
+            <td><input type="text" name="babershopname"></td>
         </tr>
         <tr>
             <td colspan="2" align="center">
@@ -93,5 +89,5 @@
             </td>
         </tr>
     </table>
-</form>
+   <?php echo form_close(); ?>
 </body>

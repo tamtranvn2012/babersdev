@@ -52,7 +52,10 @@ $route['search/zipcode'] = "search/search_by_zipcode";
 $route['(:any)/manage'] = "profilepage/profile_manage";
 $route['upload/addnew'] = "upload/upload_img";
 $route['user/login'] = "user/login";
+$route['user/register'] = "user/register";
 $route['user/checklogin'] = "user/checklogin";
+$route['user/check'] = "user/check";
+$route['user/successful'] = "user/successful";
 $route['test'] = "test";
 $route['(:any)'] = "profilefrontpage";
 

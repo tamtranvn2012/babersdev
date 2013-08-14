@@ -52,7 +52,7 @@
                 $userarr = $query->result();
                 $dataprofile = array(
                     'userid' => $userarr[0]->userid,
-                    'address' => $encodepass,
+                    'address' => $_REQUEST['address'],
                     'city' => $_REQUEST['city'],
                     'state' => $_REQUEST['state'],
                     'zip' => $_REQUEST['zip'],
@@ -60,12 +60,12 @@
                     'instantgram' => $_REQUEST['instantgram'],
                     'facebook' => $_REQUEST['facebook'],
                     'favorites_tool' => $_REQUEST['favoritestool'],
-                    'private' => $_REQUEST['private'],
+                    'private' => 0,
                     'created' => $nowtimestamp,
-                    'slug' => $_REQUEST['slug']
+                    'babershopname' => $_REQUEST['babershopname'],
                 );
                 $this->db->insert('userprofile',$dataprofile);
-                redirect('/user/successful/', 'refresh');
+                redirect('/user/login/', 'refresh');
             }
             return true;
         }

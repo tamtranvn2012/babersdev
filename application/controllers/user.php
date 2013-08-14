@@ -7,6 +7,7 @@ class User extends Main_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
+
 	}
 
 	public function add_new(){
