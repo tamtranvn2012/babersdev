@@ -46,6 +46,7 @@ $route['(:any)/manage/listapprove/(:any)'] = "profilepage/listing_approved_by_bp
 $route['(:any)/manage/addnewpost/(:any)/(:any)'] = "profilepage/add_new_post";
 $route['(:any)/manage/requestapprove'] = "profilepage/request_approve";
 $route['(:any)/manage/saverequest'] = "profilepage/save_request_approve";
+$route['(:any)/manage/posts/(:any)/(:any)'] = "profilepage/manage_post_bpid";
 $route['(:any)/manage/posts'] = "profilepage/manage_bp_posts";
 $route['search/zipcode'] = "search/search_by_zipcode";
 $route['(:any)/manage'] = "profilepage/profile_manage";

@@ -173,5 +173,18 @@
 			$query = $this->db->get('user');
 			return $query->result();		
 		}
+		
+		//Check username containt with userid or not
+		function check_username_userid($username,$userid){
+			$this->db->select('userid');
+			$this->db->where('userid', $userid);
+			$this->db->where('username', $username);
+			$query = $this->db->get('user');
+			if(count($query->result())){
+				return true;
+			}else{
+				return false;
+			}
+		}
     }
 ?>
